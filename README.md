@@ -18,12 +18,12 @@ Disponemos de los siguientes datos:
     + distancia máxima dispuesta a caminar entre bares
     
 ## Qué hace falta procesar
-Para organizar la ruta no basta buscar bares, hay que analizar la matriz de restricciones combinadas del grupo y filtrar que subconjunto de establecimientos es apto para todos a la vez
+Para organizar la ruta no basta buscar bares, hay que analizar la matriz de restricciones combinadas del grupo y filtrar que subconjunto de establecimientos es apto para todos a la vez.
 También hay que calcular distancias a pie para crear una secuencia lógica y validar que el tiempo de desplazamiento encaje con los horarios de apertura de cada local.
 Si alguna cambia en tiempo real, por ejemplo, si se llena el local, se generaría una ruta alternativa desde el punto actual, que recalcule distancias y volviendo a aplicar filtros de restricciones sobre los bares restantes.
 
 ## Por qué hace falta que esté en la nube
-Actualmente la planificación cae en quien organiza el plan, esto hace que esa ruta dependa únicamente de una persona, si el grupo se divide o llegan tarde, tienen que preguntar por Whatsapp donde están. Tener la app y el itinerario accesibles en la nube permitiría que cualquiera pudiera consultar la ruta en tiempo real desde su movil y si el organizador se queda sin batería, otro pudiera solicitar la generación de una ruta alternativa al instante
+Actualmente la planificación cae en quien organiza el plan, esto hace que esa ruta dependa únicamente de una persona, si el grupo se divide o llegan tarde, tienen que preguntar por Whatsapp donde están. Tener la app y el itinerario accesibles en la nube permitiría que cualquiera pudiera consultar la ruta en tiempo real desde su movil y si el organizador se queda sin batería, otro pudiera solicitar la generación de una ruta alternativa al instante.
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
 
