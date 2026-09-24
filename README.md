@@ -7,6 +7,7 @@ La pizzeria donde trabajo tiene un problema a la hora de cuadrar los horarios, p
 Se suele realizar el cuadrante mediante ensayo y error, verificando de forma visual que se cumplen las condiciones necesarias, lo que puede dar fallos inesperados. 
 
 ## Datos disponibles
+El sistema dispondrá de un csv con los datos.
 Disponemos de los siguientes datos:
     + Plantilla de empleados
     + Disponibilidad de empleados
