@@ -1,32 +1,26 @@
-# Tapeo4All
+# EasyTurno
 
 ## Problema
-Una vez al mes quedamos todos los amigos para irnos de ruta de tapeo por el pueblo, pero hay un problema, uno de mis amigos es celiaco y otra es vegana, por lo que debemos saber cuales son los bares cuyas tapas cumplen con las restricciones alimentarias de mis amigos. Nuestro plan consiste en visitar un par de bares para tapear, como se hace de costumbre.
+La pizzeria donde trabajo tiene un problema a la hora de cuadrar los horarios, puesto que supone un rompecabezas para mi jefe, no basta con asignar huecos,un dia normal se necesitan 4 cocineros, 1 en el horno, 1 atendiendo a los teléfonos y 4 repartidores, respetando las horas de descanso y las horas por contrato, pero los findes la demanda sube haciendo que se necesiten 7 cocineros,1 de ellos en el horno, 2 atendiendo telefonos y 5 repartidores. También si alguien se da de baja hay que reestructurar el cuadrante.
 
-## De dónde viene esto
-Este problema me viene de cerca puesto que uno de mis mejores amigos es alérgico al gluten y en muchos bares no hay opciones para él, por lo que solemos frecuentar siempre los mismos bares donde conocemos que hay variedades para celiacos, a pesar de que siempre nos quedamos con las ganas de probar nuevos sitios.
-
-## Como nos organizamos
-Solemos buscar a mano, establecimiento a establecimiento la carta del sitio para ver si podemos ir, pero hay veces que incluso está desactualizada y nos damos la vuelta al llegar
+## Como se organiza
+Se suele realizar el cuadrante mediante ensayo y error, verificando de forma visual que se cumplen las condiciones necesarias, lo que puede dar fallos inesperados. 
 
 ## Datos disponibles
 Disponemos de los siguientes datos:
-    + lista de miembros del grupo.
-    + catálogo de bares de tapas y ubicación
-    + alérgenos e ingredientes de cada bar.
-    + horarios de apertura y cierre de cocina de los locales.
-    + distancia máxima dispuesta a caminar entre bares
+    + Plantilla de empleados
+    + Disponibilidad de empleados
+    + Curva de demanda esperada
     
 ## Qué hace falta procesar
-Para organizar la ruta no basta buscar bares, hay que analizar la matriz de restricciones combinadas del grupo y filtrar que subconjunto de establecimientos es apto para todos a la vez.
-También hay que calcular distancias a pie para crear una secuencia lógica y validar que el tiempo de desplazamiento encaje con los horarios de apertura de cada local.
-Si alguna cambia en tiempo real, por ejemplo, si se llena el local, se generaría una ruta alternativa desde el punto actual, que recalcule distancias y volviendo a aplicar filtros de restricciones sobre los bares restantes.
-
-## Por qué hace falta que esté en la nube
-Actualmente la planificación cae en quien organiza el plan, esto hace que esa ruta dependa únicamente de una persona, si el grupo se divide o llegan tarde, tienen que preguntar por Whatsapp donde están. Tener la app y el itinerario accesibles en la nube permitiría que cualquiera pudiera consultar la ruta en tiempo real desde su movil y si el organizador se queda sin batería, otro pudiera solicitar la generación de una ruta alternativa al instante.
+Hay que resolver un problema con una serie de restricciones, las cuales son
+    + Calcular permutaciones de asignación de turnos y descartar aquellas que violen reglas estrictas
+    + Asegurar que los cuadrantes resultantes cumplen estrictamente con las habilidades requeridas en cada dia.
+    + Ante una incidencia en tiempo real, el sistema debe destruir la asignación actual y computar en segundos una nueva distribución de emergencia
+    
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
-
+                                                                       
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
 [Documentación](./docs)
 
