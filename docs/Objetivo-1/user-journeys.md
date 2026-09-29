@@ -10,7 +10,7 @@
 3. El sistema comprueba que ningún trabajador supera las horas de contrato y que respeten sus horas de descanso
 4. Rafa publica el cuadrante a los trabajadores
 
-## UJ-2. Reestructuración de urgencia por baja imprevista. (Carlos,Rafa,Yeni,Sara,Daniel,Nerea,Dani,Belén,Ivan,Dani [Repartidor], Salva, Rubén y Jose)
+## UJ-2. Reestructuración de urgencia por baja imprevista. (Carlos,Rafa,Yeni,Sara,Daniel,Nerea,Dani,Belén,Ivan,Dani [Repartidor], Salva, Rubén Jose y Jesús)
 * **Frecuencia:** Puntual.
 * **Contexto:** Si por algún casual algún trabajador se da de baja de forma imprevista.
 * **Dispositivo:** Móvil
@@ -20,7 +20,7 @@
 3. Carlos acepta la nueva distribución generada por el sistema.
 4. Los trabajadores consultan desde su movil el cuadrante actualizado.
 
-## UJ-3. Consulta y verificación del horario (Rafa,Yeni,Sara,Daniel,Nerea,Dani,Belén,Ivan,Dani [Repartidor], Salva, Rubén y Jose)
+## UJ-3. Consulta y verificación del horario (Rafa,Yeni,Sara,Daniel,Nerea,Dani,Belén,Ivan,Dani [Repartidor], Salva, Rubén Jose y Jesús)
 * **Frecuencia:** Varias veces por semana
 * **Contexto:** Un trabajador sale de clase y quiere comprobar que días les toca librar esta
 semana.
