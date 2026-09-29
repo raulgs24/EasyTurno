@@ -9,6 +9,8 @@ Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evol
 * Módulo que representa las estructuras de datos inmutables de la pizzería:
 * * Los trabajadores de la plantilla con sus puestos capacitados (cocina, horno, teléfono y reparto), sus horas máximas de contrato y franjas de indisponibilidad.
   * La configuración de los turnos diarios y demanda mínima de puestos según el día de la semana.
+* **Criterio de viabilidad y validez:**
+* El producto será viable y válido cuando instancie correctamente los objetos con los datos de la pizzeria, garantizando la construcción de las estructuras de las reglas básicas de integridad.
 
 ## Milestone 1: Validación de restricciones y reajuste de cuadrantes
 * **Carácter:** Primer producto funcional con lógica de negocio.
@@ -17,3 +19,5 @@ Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evol
 * Empleo de las estructuras del Milestone 0 para comprobar si un cuadrante cumple todas las reglas operativas y laborales:
 * * Validación de cobertura y restricciones.
   * Reajuste de urgencia ante bajas imprevistas.
+* **Criterio de viabilidad y validez:**
+* El producto será viable y válido cuando supere tests de casos reales de la pizzería, verificando así que detecta conflictos de cobertura o descansos y genera alternativa válida cuando un trabajador causa baja en un turno
