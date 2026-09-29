@@ -5,7 +5,7 @@
 * **Beneficio:** Obtener un cuadrante válido que garantiza todas las restricciones y que pueda recalcularse ante una emergencia imprevista.
 
 ## Mari - Mujer del Jefe de la pizzería
-* **Contexto:** Se encarga de supervisar que la organización cumpla con los contratos, nóminas y legalidad laboral.
+* **Contexto:** Se encarga de supervisar que la organización cumpla con los contratos, nóminas y legalidad laboral, también hace pizzas.
 * **Beneficio:** Garantizar que ningún cuadrante ni reajuste urgente supere las horas máximas de contrato de cada trabajador.
 
 ## Rafa - Encargado de la pizzería
@@ -36,6 +36,10 @@
 * **Contexto:** Se encarga de atender llamadas y gestionar la entrada de pedidos (entre semana hace falta 1 persona al teléfono pero el fin de semana hacen falta 2). 
 * **Beneficio:** Garantizar que el cuadrante valide el refuerzo del segundo puestos de fines de semanas.
 
+## Raúl y Jesús - Cocineros
+* **Contexto:** Está en cocina y se encarga de hacer pizzas.
+* **Beneficio:** Que los turnos respeten sus horarios universitarios.
+ 
 ## Iván, Dani y Salva - Repartidores con mayor carga horaria
 * **Contexto:** Cubre gran parte de los turnos de entre semana además del fin de semana completo.
 * **Beneficio:** Que se distribuya las rotaciones entre semana sin sobrepasar las horas de contrato y respetando descansos legales.
