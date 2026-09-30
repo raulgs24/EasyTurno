@@ -12,10 +12,10 @@ Las historias de usuario recogen las necesidades reales de los miembros de la pi
 * **Issue en GitHub:** [#3](https://github.com/raulgs24/EasyTurno/issues/3)
 * **Descripción**: Soy Carlos, cuando alguien avisa con poca antelación que no puede acudir, no tengo forma de saber que reajuste debo hacer entre trabajadores para cubrir todos los puestos nuevamente y reorganizar el planning.
 * **User Journey relacionado:** [UJ-2. Reestructuración de urgencia por baja imprevista](user-journeys.md)
-* **Milestone asociado:** [Milestone 1:lógica de negocio y tests](milestones.md)
+* **Milestone asociado:** [Milestone 1: Lógica de negocio y tests](milestones.md)
 
 ## [HU003] Me preocupa el cumplimiento horario de mis restricciones
 * **Issue en GitHub:** [#5](https://github.com/raulgs24/EasyTurno/issues/5)
 * **Descripción**: Soy Daniel, me preocupa que los horarios generados por el sistema no cumplan mis restricciones horarios ni respeten mis tiempos de descanso.
 * **User Journey relacionado:** [UJ-3. Consulta y verificación del horario](user-journeys.md)
-* **Milestone asociado:** [Milestone 1:lógica de negocio y tests](milestones.md)
+* **Milestone asociado:** [Milestone 1: Lógica de negocio y tests](milestones.md)
