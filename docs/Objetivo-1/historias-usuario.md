@@ -1,6 +1,6 @@
 # Historias de Usuario
 
-Las historias de usuario recogen las necesidades reales de los miembros de la pizzería (definidos en los perfiles de usuario: https://github.com/raulgs24/EasyTurno/blob/Objetivo-1/docs/Objetivo-1/perfiles_usuario.md)
+Las historias de usuario recogen las necesidades reales de los miembros de la pizzería (definidos en los [perfiles de usuario](perfiles-usuario.md)
 
 ## [HU001] No sé si al cuadrar los turnos de la semana dejo puestos sin cubrir o incumplo descansos y contratos.
 * **Issue en GitHub:** [#2](https://github.com/raulgs24/EasyTurno/issues/2)
