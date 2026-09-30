@@ -2,7 +2,7 @@
 
 Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evoluciona de forma gradual hacia la solución de las [historias de usuario](historias-usuario.md)
 
-## Milestone 0: Modelo de los datos
+## Milestone 0: Base del dominio del problema
 * **Carácter:** Producto interno inicial (base para que el equipo pueda implementar la lógica de validación posterior)
 * **Historias de usuario asociadas:** [HU001](historias-usuario.md).
 * **Producto entregable (PMV):**
@@ -10,14 +10,12 @@ Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evol
 * * Los trabajadores de la plantilla con sus puestos capacitados (cocina, horno, teléfono y reparto), sus horas máximas de contrato y franjas de indisponibilidad.
   * La configuración de los turnos diarios y demanda mínima de puestos según el día de la semana.
 * **Criterio de viabilidad y validez:**
-* El producto será viable y válido cuando instancie correctamente los objetos con los datos de la pizzeria, garantizando la construcción de las estructuras de las reglas básicas de integridad.
+* El producto será viable y válido cuando cada cambio responda a un issue específico derivado del análisis de las historias de usuario, verificando que refleja fielmente el problema planteado
 
-## Milestone 1: Validación de restricciones y reajuste de cuadrantes
-* **Carácter:** Primer producto funcional con lógica de negocio.
+## Milestone 1: Lógica de negocio y tests
+* **Carácter:** Primer producto funcional con lógica de negocio y verificable automáticamente.
 * **Historias de usuario asociadas:** [HU002](historias-usuario.md) y [HU003](historias-usuario.md).
 * **Producto entregable (PMV):**
-* Empleo de las estructuras del Milestone 0 para comprobar si un cuadrante cumple todas las reglas operativas y laborales:
-* * Validación de cobertura y restricciones.
-  * Reajuste de urgencia ante bajas imprevistas.
+* Implementación sobre el Milestone 0 que implementa la lógica de negocio necesaria para resolver los problemas planteados en las historias de usuario asociadas, junto a una batería de tests.
 * **Criterio de viabilidad y validez:**
-* El producto será viable y válido cuando supere tests de casos reales de la pizzería, verificando así que detecta conflictos de cobertura o descansos y genera alternativa válida cuando un trabajador causa baja en un turno
+* El producto será viable y válido cuando supere tests que comprueban que el sistema da respuesta correcta a escenarios y datos definidos en dichas historias de usuario.
