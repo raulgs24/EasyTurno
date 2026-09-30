@@ -6,6 +6,7 @@ Las historias de usuario recogen las necesidades reales de los miembros de la pi
 * **Issue en GitHub:** [#2](https://github.com/raulgs24/EasyTurno/issues/2)
 * **Descripción**: Soy Carlos, como Jefe que tiene que cuadrar cada domingo los horarios de los trabajadores, no tengo forma de saber si cada franja horaria cubre los puestos especificos, respetando la disponibilidad y restricciones legales de los trabajadores.
 * **User Journey relacionado:** [UJ-1. Generación y validación del cuadrante semanal](user-journeys.md)
+* **Milestone asociado:** [Milestone 0. 
 
 ## [HU002] Cuando un trabajador se da de baja, no sé como reajustar el turno de forma rápida sin descompensar otros puestos
 * **Issue en GitHub:** [#3](https://github.com/raulgs24/EasyTurno/issues/3)
