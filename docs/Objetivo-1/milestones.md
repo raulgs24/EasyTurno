@@ -10,7 +10,7 @@ Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evol
 * * Los trabajadores de la plantilla con sus puestos capacitados (cocina, horno, teléfono y reparto), sus horas máximas de contrato y franjas de indisponibilidad.
   * La configuración de los turnos diarios y demanda mínima de puestos según el día de la semana.
 * **Criterio de viabilidad y validez:** 
-  * El producto será viable y válido cuando cada cambio responda a un issue específico derivado del análisis de las historias de usuario, aplicando una metodología en las historias de usuario donde se extraigan los conceptos esenciales de las mismas, aplicando este razonamiento al código asociado, creando las entidades necesarias y la relación entre ellas (aún sin lógica de negocio).
+  * El producto será viable y válido cuando cada cambio responda a un issue específico derivado del análisis de las historias de usuario, aplicando una metodología en las historias de usuario donde se extraigan los conceptos esenciales de las mismas y aplicando este razonamiento al código asociado, creando las entidades necesarias y la relación entre ellas (aún sin lógica de negocio).
 
 ## Milestone 1: Lógica de negocio y tests
 * **Carácter:** Primer producto funcional con lógica de negocio y verificable automáticamente.
