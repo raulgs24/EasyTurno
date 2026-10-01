@@ -21,7 +21,14 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
     
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
+
                                                                        
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
 [Documentación](./docs)
+
+* [Configuración del repositorio (Objetivo 0)](docs/objetivo-0.md)
+* [Perfiles de usuario](docs/Objetivo-1/perfiles_usuario.md)
+* [User Journeys](docs/Objetivo-1/user-journeys.md)
+* [Historias de usuario](docs/Objetivo-1/historias-usuario.md)
+* [Milestones](docs/Objetivo-1/milestones.md)
 
