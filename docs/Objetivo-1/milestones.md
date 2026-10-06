@@ -6,7 +6,11 @@
 * **Producto entregable (PMV):**
 * Código fuente que plasme los elementos y las reglas del dominio del problema, tal y como se define en las historias de usuario
 * **Criterio de viabilidad y validez:** 
-  * El producto será viable y válido cuando cada cambio responda a un issue específico derivado del análisis de las historias de usuario, aplicando una metodología en las historias de usuario donde se extraigan los conceptos esenciales de las mismas y aplicando este razonamiento al código asociado, creando las entidades necesarias y la relación entre ellas (aún sin lógica de negocio).
+  * El producto será viable y válido cuando el desarrollador aplique la siguiente metodología:
+  * * Analizar las historias de usuario para extraes los conceptos esenciales del problema.
+    * Crear los issues específicos para documentar y aislar cada tarea del desarrollo.
+    * Escribir el código en ramas independientes asociadas a dichos issues.
+    * Validar mediante revisión por pares en un PR, asegurando que el código refleja las reglas del negocio antes de integrarlo.
 
 ## Milestone 1: Lógica de negocio y tests
 * **Carácter:** Primer producto funcional con lógica de negocio y verificable automáticamente.
