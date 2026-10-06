@@ -1,7 +1,5 @@
 # Milestones
 
-Cada milestone define un Producto Mínimamente Viable (PMV) entregable, que evoluciona de forma gradual hacia la solución de las [historias de usuario](historias-usuario.md)
-
 ## Milestone 0: Base del dominio del problema
 * **Carácter:** Producto interno inicial (base para que el equipo pueda implementar la lógica de validación posterior)
 * **Historias de usuario asociadas:** [HU001](historias-usuario.md).
