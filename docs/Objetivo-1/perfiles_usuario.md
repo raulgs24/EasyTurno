@@ -2,7 +2,7 @@
 
 ## Carlos - Jefe de la Pizzería
 * **Contexto:** Es el responsable de organizar los turnos de los 15 trabajadores de la pizzería (4 cocineros, 1 horno, 1 teléfono y 4 repartidores entre semana; 7 cocineros, 1 horno, 2 teléfonos y 5 repartidores el fin de semana) y asegura que todos los puestos queden cubiertos.
-* **Beneficio:** Obtener un cuadrante válido que garantiza todas las restricciones y que pueda recalcularse ante una emergencia imprevista.
+* **Beneficio:** Obtener un cuadrante que garantice la cobertura exacta de todos los puestos requeridos en cada turno y que pueda recalcularse ante una emergencia imprevista.
 
 ## Mari - Mujer del Jefe de la pizzería
 * **Contexto:** Se encarga de supervisar que la organización cumpla con los contratos, nóminas y legalidad laboral, también hace pizzas.
