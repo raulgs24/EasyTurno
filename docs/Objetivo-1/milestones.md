@@ -1,8 +1,11 @@
 # Milestones
+Todas las milestones avanzan en resolución del problema de la [HU001](historias-usuario.md)
+La metodología que sigue es el Desarrollo Guiado por Comportamiento (de la HU001 se extraen escenarios, de cada escenario surgen issues y cada commit referencia el issue al que responde)
 
-## Milestone 0: Base del dominio del problema
-* Aplicaremos Diseño Orientado al Comportamiento a las historias de usuario de la [HU001](historias-usuario.md):
-* El trabajo se realiza con issues que derivan de los escenarios de la HU001, asentando las reglas básicas (trabajadores, restricciones y turnos). Paso a paso, en los issues se ve si el comportamiento se está definiendo bien y se ajustan con la retroalimentación continua (es decir, que se revise el código antes de mergear cada PR). El código responde a ellos con commits que referencian al issue que responden.  
+## Milestone 0
+* **Producto:** Un paquete instalable del lenguaje elegido, que el M1 podrá importar y usar directamente.
+* **Validez:** El código passa sin errores el compilador o comprobador de sintaxis del lenguaje (a elegir en un futuro).Se comprueba mientras se desarrolla, no al final. Cada cambio llega en un pr que responde a un issue surgido de un escenario de la HU001, y se revisa antes del merge comprobando que el codigo responde al issue
 
-## Milestone 1: Lógica de negocio y tests
-* El PMV será la implementación sobre el Milestone 0 que crea la lógica de negocio necesaria para resolver los problemas planteados en las historias de usuario asociadas [HU002](historias-usuario.md) [HU003](historias-usuario.md), junto a una batería de tests. El producto será viable y válido cuando supere tests que comprueban que el sistema da respuesta correcta a escenarios y datos definidos en dichas historias de usuario.
+## Milestone 1
+* **Producto:** Una nueva versión del paquete de la m0, que incorpora el código capaz de dar respuesta al problema de la HU001, junto a una batería de test.
+* **Validez:** Los tests, escritos a partir de los escenarios de la HU001, se ejecutan automáticamente y pasan. Se mantiene el mismo proceso de issue -> commit -> revisión en el PR
