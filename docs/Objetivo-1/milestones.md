@@ -4,9 +4,7 @@
 * **Carácter:** Producto interno inicial (base para que el equipo pueda implementar la lógica de validación posterior)
 * **Historias de usuario asociadas:** [HU001](historias-usuario.md).
 * **Producto entregable (PMV):**
-* Módulo que representa las estructuras de datos inmutables de la pizzería:
-* * Los trabajadores de la plantilla con sus puestos capacitados (cocina, horno, teléfono y reparto), sus horas máximas de contrato y franjas de indisponibilidad.
-  * La configuración de los turnos diarios y demanda mínima de puestos según el día de la semana.
+* Código fuente que plasme los elementos y las reglas del dominio del problema, tal y como se define en las historias de usuario
 * **Criterio de viabilidad y validez:** 
   * El producto será viable y válido cuando cada cambio responda a un issue específico derivado del análisis de las historias de usuario, aplicando una metodología en las historias de usuario donde se extraigan los conceptos esenciales de las mismas y aplicando este razonamiento al código asociado, creando las entidades necesarias y la relación entre ellas (aún sin lógica de negocio).
 
