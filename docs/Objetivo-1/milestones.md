@@ -1,11 +1,8 @@
 # Milestones
-Todas las milestones avanzan en resolución del problema de la [HU001](historias-usuario.md)
-La metodología que sigue es el Desarrollo Guiado por Comportamiento (de la HU001 se extraen escenarios, de cada escenario surgen issues y cada commit referencia el issue al que responde)
+Todas las milestones avanzan en la resolución del problema de la [HU001](historias-usuario.md)
 
 ## Milestone 0
-* **Producto:** Un paquete instalable del lenguaje elegido, que el M1 podrá importar y usar directamente.
-* **Validez:** El código passa sin errores el compilador o comprobador de sintaxis del lenguaje (a elegir en un futuro).Se comprueba mientras se desarrolla, no al final. Cada cambio llega en un pr que responde a un issue surgido de un escenario de la HU001, y se revisa antes del merge comprobando que el codigo responde al issue
+Se empleará BDD (Desarrollo Guiado por Comportamiento, de la HU001 se extraen escenarios, y de cada escenario surgen issues) para trabajar sobre la HU001, a partir del cual se comprenderá el problema planteado de los turnos de la pizzería. Los issues que surjan se irán resolviendo con código, que quedará en la rama principal del repositorio y solo entrará mediante PR revisado. Esto será válido cuando se resuelvan todos los issues de la HU001 con un commit que los referencie.
 
 ## Milestone 1
-* **Producto:** Una nueva versión del paquete de la m0, que incorpora el código capaz de dar respuesta al problema de la HU001, junto a una batería de test.
-* **Validez:** Los tests, escritos a partir de los escenarios de la HU001, se ejecutan automáticamente y pasan. Se mantiene el mismo proceso de issue -> commit -> revisión en el PR
+Se sigue construyendo a raíz de la HU001 y, específicamente sobre M0, aquí comenzará el desarrollo de las verificaciones de requisitos de los cuadrantes. Este milestone será válido siempre y cuando los issues estén resueltos y los escenarios de la HU001 se conviertan en pruebas automáticas y estas sean superadas. 
