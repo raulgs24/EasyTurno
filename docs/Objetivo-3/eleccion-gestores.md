@@ -56,3 +56,8 @@ Como opciones tenemos: make, Task, just, Mage y goyek
 
   ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
   ![just check](../img/Objetivo-3/just-check.png)
+
+- **[Mage]** (`magefile.go`): instalarlo con go install tarda 9.15s; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.09 y 0.16s
+
+  ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
+  ![mage check](../img/Objetivo-3/mage-check.png)
