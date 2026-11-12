@@ -22,7 +22,9 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
 
-                                                                       
+## Elección del lenguaje de programación
+Para el desarrollo del proyecto se ha optado por trabajar sobre Golang (Go) debido a que su sistema de tipado estricto facilita enormemente el modelado de las Entidades y Objetos Valor requeridos por la metodología Domain-Driven Design. Además, al generar binarios estáticos minimalistas y prescindir por completo de la máquina virtual de Java (JVM), garantiza una ejecución instantánea de las pruebas automatizadas y resulta ideal para la futura creación de contenedores Docker eficientes de cara a su despliegue en la nube.
+
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
 [Documentación](./docs)
 
