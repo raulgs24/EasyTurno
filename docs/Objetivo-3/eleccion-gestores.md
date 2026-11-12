@@ -38,31 +38,31 @@ Go Modules no sirve como gestor de tareas, ya que la orden go no tiene un ficher
 * Dependencias que añade a `go.mod`.
 
 ### Opciones
-Como referencia, `go build` sin gestor tarda:
+Como referencia, `go build` sin gestor tarda 0.048-0.109s:
 ![go build sin gestor de tareas](../img/Objetivo-3/referencia-go-build.png)
 
 Como opciones tenemos: make, Task, just, Mage y goyek
-- **[make]** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.04 y 0.08s, lo mismo que sin gestor.
+- **[make]** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.041 y 0.109s, lo mismo que sin gestor.
 
   ![make ya instalado](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task]** (`Taskfile.yml`): instalarlo con `go install` que lo compila, tarda 1 min 4s; `task check` tarda entre 0.1 y 0.16s, unos 0.05s-0.08s mas que sin gestor.
+- **[Task]** (`Taskfile.yml`): instalarlo con `go install` que lo compila, tarda 1 min 4s; `task check` tarda entre 0.127 y 0.261s, unos 0.05s-0.08s mas que sin gestor.
 
   ![Instalación de Task](../img/Objetivo-3/task-instalacion.png)
   ![task check](../img/Objetivo-3/task-check.png)
 
-- **[just]** (`justfile`): instalarlo con `apt` tarda 8,305s; `just check` tarda entre 0.04 y 0.07s, lo mismo que sin gestor.
+- **[just]** (`justfile`): instalarlo con `apt` tarda 8,305s; `just check` tarda entre 0.035 y 0.077s, lo mismo que sin gestor.
 
   ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
   ![just check](../img/Objetivo-3/just-check.png)
 
-- **[Mage]** (`magefile.go`): instalarlo con go install tarda 9.15s; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.09 y 0.16s
+- **[Mage]** (`magefile.go`): instalarlo con go install tarda 9.15s; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.083 y 0.087s
 
   ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
   ![mage check](../img/Objetivo-3/mage-check.png)
 
-- **[goyek]** (biblioteca de Go): añadirlo con `go get` tarde 1.95s: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.33 y 0.42s, unos 0.25-0.35s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
+- **[goyek]** (biblioteca de Go): añadirlo con `go get` tarde 1.95s: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
 
   ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
   ![goyek check](../img/Objetivo-3/goyek-check.png)
