@@ -40,3 +40,9 @@ Go Modules no sirve como gestor de tareas, ya que la orden go no tiene un ficher
 ### Opciones
 Como referencia, `go build` sin gestor tarda:
 ![go build sin gestor de tareas](../img/Objetivo-3/referencia-go-build.png)
+
+Como opciones tenemos: make, Task, just, Mage y goyek
+- **[make]** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.04 y 0.08s, lo mismo que sin gestor.
+
+  ![make ya instalado](../img/Objetivo-3/make-instalacion.png)
+  ![make check](../img/Objetivo-3/make-check.png)
