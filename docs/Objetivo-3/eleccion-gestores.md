@@ -51,3 +51,8 @@ Como opciones tenemos: make, Task, just, Mage y goyek
 
   ![Instalación de Task](../img/Objetivo-3/task-instalacion.png)
   ![task check](../img/Objetivo-3/task-check.png)
+
+- **[just]** (`justfile`): instalarlo con `apt` tarda 8,305s; `just check` tarda entre 0.04 y 0.07s, lo mismo que sin gestor.
+
+  ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
+  ![just check](../img/Objetivo-3/just-check.png)
