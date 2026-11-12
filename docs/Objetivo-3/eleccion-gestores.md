@@ -61,3 +61,12 @@ Como opciones tenemos: make, Task, just, Mage y goyek
 
   ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
   ![mage check](../img/Objetivo-3/mage-check.png)
+
+- **[goyek]** (biblioteca de Go): añadirlo con `go get` tarde 1.95s: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.33 y 0.42s, unos 0.25-0.35s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
+
+  ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
+  ![goyek check](../img/Objetivo-3/goyek-check.png)
+  ![go.mod con goyek](../img/Objetivo-3/goyek-gomod.png)
+
+Por tanto, los criterios apuntan a **make**: es el único que no hubo que instalar, no añade tiempo a check y no toca go.mod.
+
