@@ -44,7 +44,7 @@ Como referencia, `go build` sin gestor tarda:
 Como opciones tenemos: make, Task, just, Mage y goyek
 - **[make]** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.04 y 0.08s, lo mismo que sin gestor.
 
-  ![make ya instalado](../img/Objetivo-3/make-instalación.png)
+  ![make ya instalado](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
 - **[Task]** (`Taskfile.yml`): instalarlo con `go install` que lo compila, tarda 1 min 3.7s; `task check` tarda entre 0.1 y 0.16s, unos 0.05s-0.08s mas que sin gestor.
