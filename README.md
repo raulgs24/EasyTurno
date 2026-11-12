@@ -32,3 +32,9 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 * [Historias de usuario](docs/Objetivo-1/historias-usuario.md)
 * [Milestones](docs/Objetivo-1/milestones.md)
 
+## Instalación y comprobación
+
+Hace falta Go en la versión indicada en `go.mod` y make.
+    make install # instala las dependencias
+    make check   # comprueba que el codigo de internal/easyturno compila
+
