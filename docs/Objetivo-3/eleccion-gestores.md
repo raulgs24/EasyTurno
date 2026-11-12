@@ -37,3 +37,6 @@ Go Modules no sirve como gestor de tareas, ya que la orden go no tiene un ficher
 * Tiempo de ejecución de `check` comparado con `go build`.
 * Dependencias que añade a `go.mod`.
 
+### Opciones
+Como referencia, `go build` sin gestor tarda:
+![go build sin gestor de tareas](../img/Objetivo-3/referencia-go-build.png)
