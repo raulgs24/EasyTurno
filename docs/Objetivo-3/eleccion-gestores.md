@@ -68,5 +68,6 @@ Como opciones tenemos: make, Task, just, Mage y goyek
   ![goyek check](../img/Objetivo-3/goyek-check.png)
   ![go.mod con goyek](../img/Objetivo-3/goyek-gomod.png)
 
-Por tanto, los criterios apuntan a **make**: es el único que no hubo que instalar, no añade tiempo a check y no toca go.mod.
+
+Por tanto, los criterios apuntan a **make**: es el único que no hubo que instalar, no añade tiempo a check y no toca go.mod. Just empata en tiempo de ejecucuón, y en go.mod, simplemente pierde en la instalación.
 
