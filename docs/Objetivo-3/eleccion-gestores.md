@@ -46,3 +46,8 @@ Como opciones tenemos: make, Task, just, Mage y goyek
 
   ![make ya instalado](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
+
+- **[Task]** (`Taskfile.yml`): instalarlo con `go install` que lo compila, tarda 1 min 4s; `task check` tarda entre 0.1 y 0.16s, unos 0.05s-0.08s mas que sin gestor.
+
+  ![Instalación de Task](../img/Objetivo-3/task-instalacion.png)
+  ![task check](../img/Objetivo-3/task-check.png)
