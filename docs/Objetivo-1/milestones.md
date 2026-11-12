@@ -7,3 +7,4 @@ Esto será válido cuando el código use los mismos términos y reglas que Carlo
 
 ## Milestone 1
 Partiendo de la m0 que trabaja sobre HU001, el problema de la HU001 se divide en preguntas más pequeñas (comprobables mediante tests), por ejemplo, ¿queda algún día sin nadie en el horno? o ¿alguien trabaja dos turnos seguidos sin su descanso? Cada pregunta va en un issue, cada issue se resuelve con código sobre m0. Este milestone será válido siempre y cuando ningún issue se cierre sin que su test pase, esos test escritos a través de escenarios de la HU001.
+El MVP incluye las tareas automatizadas para preparar el entorno y comprobar que el código compila, de forma que cualquiera pueda validarlo con una sola orden.
