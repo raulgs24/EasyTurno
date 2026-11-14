@@ -20,7 +20,13 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
     + Ante una incidencia en tiempo real, el sistema debe destruir la asignación actual y computar en segundos una nueva distribución de emergencia
     
 
-![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
+## Instalación y comprobación
+
+Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
+
+    * `make install` Descarga módulos declarados en el `go.mod`
+    * `make check` Comprueba que el código de internal/easyturno compila.
+
 
                                                                        
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
@@ -31,4 +37,7 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 * [User Journeys](docs/Objetivo-1/user-journeys.md)
 * [Historias de usuario](docs/Objetivo-1/historias-usuario.md)
 * [Milestones](docs/Objetivo-1/milestones.md)
+* [Elección del gestor de dependencias y tareas](docs/Objetivo-3/eleccion-gestores.md)
 
+
+![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
