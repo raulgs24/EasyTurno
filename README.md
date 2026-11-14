@@ -22,9 +22,9 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 ## Instalación y comprobación
 
-Hace falta Go en la versión indicada en `go.mod` y make.
+Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
 
-    * `make install`  Instala las dependencias.
+    * `make install` Descarga módulos declarados en el `go.mod`
     * `make check` Comprueba que el código de internal/easyturno compila.
 
 
