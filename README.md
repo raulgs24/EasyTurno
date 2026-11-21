@@ -20,9 +20,17 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
     + Ante una incidencia en tiempo real, el sistema debe destruir la asignación actual y computar en segundos una nueva distribución de emergencia
     
 
-![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
+## Instalación y comprobación
 
-                                                                       
+Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
+
+    * `make install` Descarga módulos declarados en el `go.mod`
+    * `make check` Comprueba que el código de internal/easyturno compila.
+
+
+## Elección del lenguaje de programación
+Para el desarrollo del proyecto se ha optado por trabajar sobre Golang (Go) debido a que su sistema de tipado estricto facilita enormemente el modelado de las Entidades y Objetos Valor requeridos por la metodología Domain-Driven Design. Además, al generar binarios estáticos minimalistas y prescindir por completo de la máquina virtual de Java (JVM), garantiza una ejecución instantánea de las pruebas automatizadas y resulta ideal para la futura creación de contenedores Docker eficientes de cara a su despliegue en la nube.
+
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
 [Documentación](./docs)
 
@@ -31,4 +39,7 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 * [User Journeys](docs/Objetivo-1/user-journeys.md)
 * [Historias de usuario](docs/Objetivo-1/historias-usuario.md)
 * [Milestones](docs/Objetivo-1/milestones.md)
+* [Elección del gestor de dependencias y tareas](docs/Objetivo-3/eleccion-gestores.md)
 
+
+![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
