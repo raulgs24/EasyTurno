@@ -33,7 +33,7 @@ Go Modules no sirve como gestor de tareas, ya que la orden go no tiene un ficher
 - **Que no añada dependencias a go.mod.**
 
 ### Criterios:
-* Tiempo de instalación.
+* Requiere instalación o no
 * Tiempo de ejecución de `check` comparado con `go build`.
 * Dependencias que añade a `go.mod`.
 
