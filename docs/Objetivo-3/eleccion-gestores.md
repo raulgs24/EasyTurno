@@ -13,8 +13,8 @@ Las alternativas a tener en cuenta son Go Modules, dep, Glide y el modo GOPATH.
 
 Descartadas:
 
-- **dep y Glide:** archivados.
-- **Modo GOPATH:** sigue en la herramienta, pero no fija versiones.
+- **[dep](https://github.com/golang/dep):** archivado desde septiembre de 2020 en favor de Go Modules.
+- **[Glide](https://github.com/Masterminds/glide):** su README avisa de que está prácticamente sin mantenimiento y recomienda Go Modules.
 
 Por tanto, la decisión es Go Modules: es el estándar del lenguaje, el modo por defecto desde Go 1.16, y cubre las cuatro necesidades anteriores:
 
@@ -42,24 +42,24 @@ Como referencia, `go build` sin gestor tarda 0.048-0.109s:
 ![go build sin gestor de tareas](../img/Objetivo-3/referencia-go-build.png)
 
 Como opciones tenemos: make, Task, just, Mage y goyek
-- **[make]** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.041 y 0.109s, lo mismo que sin gestor.
+- **[make](https://www.gnu.org/software/make/)** (`Makefile`): Ya está instalado en mi máquina; `make check` tarda entre 0.041 y 0.109s, lo mismo que sin gestor.
 
   ![make ya instalado](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task]** (`Taskfile.yml`): se tuvo que instalar; `task check` tarda entre 0.127 y 0.261s, más que sin gestor
+- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): se tuvo que instalar; `task check` tarda entre 0.127 y 0.261s, más que sin gestor
 
   ![task check](../img/Objetivo-3/task-check.png)
 
-- **[just]** (`justfile`): se tuvo que instalar, `just check` tarda entre 0.035 y 0.077s, lo mismo que sin gestor
+-  **[just](https://github.com/casey/just)** (`justfile`): se tuvo que instalar, `just check` tarda entre 0.035 y 0.077s, lo mismo que sin gestor
 
   ![just check](../img/Objetivo-3/just-check.png)
 
-- **[Mage]** (`magefile.go`): se tuvo que instalar; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.083 y 0.087s
+- **[Mage](https://github.com/magefile/mage)** (`magefile.go`): se tuvo que instalar; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.083 y 0.087s
 
   ![mage check](../img/Objetivo-3/mage-check.png)
 
-- **[goyek]** (biblioteca de Go): no se instala como programa, se añade con `go get`: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
+- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
 
   ![goyek check](../img/Objetivo-3/goyek-check.png)
   ![go.mod con goyek](../img/Objetivo-3/goyek-gomod.png)
