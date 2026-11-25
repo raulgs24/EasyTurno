@@ -40,6 +40,7 @@ Para el desarrollo del proyecto se ha optado por trabajar sobre Golang (Go) debi
 * [Historias de usuario](docs/Objetivo-1/historias-usuario.md)
 * [Milestones](docs/Objetivo-1/milestones.md)
 * [Elección del gestor de dependencias y tareas](docs/Objetivo-3/eleccion-gestores.md)
+* [Elección de las herramientas de test](docs/Objetivo-4/eleccion-tests.md)
 
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
