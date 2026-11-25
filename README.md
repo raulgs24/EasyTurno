@@ -26,6 +26,7 @@ Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
 
     * `make install` Descarga módulos declarados en el `go.mod`
     * `make check` Comprueba que el código de internal/easyturno compila.
+    * `make test` Ejecuta los tests de internal/easyturno
 
 
 ## Elección del lenguaje de programación
