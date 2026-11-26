@@ -3,3 +3,4 @@ entidad: internal/easyturno/cuadrante.go
 automatizar:
   fichero: justfile
   orden: just
+test: internal/easyturno/turno_test.go
