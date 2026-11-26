@@ -10,16 +10,18 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 - Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de <gestor> check y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio
 
 ### Opciones
-Las medidas están hechas en un Github Codespace. Para check, cada gestor se mide en la misma ejecución de hyperfine que go build ./..., que sirve de referencias
+Las medidas están hechas en un Github Codespace. Como referencia, go build ./... sin gestor tarda de media 48.3 ms.
+
+![go build sin gestor](../img/Objetivo-3/referencia-go-build.png)
 
 Como opciones tenemos: make, Task, just, Mage y goyek
 
-- **[make](https://www.gnu.org/software/make/)** (`Makefile`): descargar y descomprimir el paquete en mi espacio tarda 1.51s de media,  make check tarda 49.7ms frente a 48.3 ms de go build ./... (no añade tiempo apreciable)
+- **[make](https://www.gnu.org/software/make/)** (`Makefile`): descargar y descomprimir el paquete en mi espacio tarda 1.51s de media,  make check tarda 49.7ms frente a 48.3 ms de go build ./... . No añade tiempo apreciable
 
   ![Instalación de make](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media frente a los 48.3ms de go build ./... .No añade tiempo apreciable
+- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media frente a los 48.3ms de go build ./... . Por lo que añade un tiempo considerable
 Se puede descargar también con go install, pero tarda mucho más. 
 
   ![Instalación de task](../img/Objetivo-3/task-instalacion.png)
@@ -31,11 +33,13 @@ No añade tiempo apreciable
   ![just check](../img/Objetivo-3/just-check.png)
 
 - **[Mage](https://github.com/magefile/mage)** (`magefile.go`): descargar el binario de sus releases a mi espacio tarda de media 0.16s. mage check tarda 133.4ms de media, mucho más que go build ./...
+También se puede instalar con go install pero tardaría mucho más
 
   ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
   ![mage check](../img/Objetivo-3/mage-check.png)
 
 - **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: que con la caché de módulos vacía tarda de media 0.16s, go run ./build check tarda 122.7ms, mucho más que con go build ./...
+  
   ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
   ![goyek check](../img/Objetivo-3/goyek-check.png)
 
