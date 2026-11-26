@@ -30,7 +30,7 @@ No añade tiempo apreciable
   ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
   ![just check](../img/Objetivo-3/just-check.png)
 
-- **[Mage](https://github.com/magefile/mage)** (`magefile.go`): se tuvo que instalar; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.083 y 0.087s
+- **[Mage](https://github.com/magefile/mage)** (`magefile.go`): descargar el binario de sus releases a mi espacio tarda de media 0.16s. mage check tarda 133.4ms de media, mucho más que go build ./...
 
   ![Instalación de Mage]
   ![mage check](../img/Objetivo-3/mage-check.png)
