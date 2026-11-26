@@ -2,6 +2,7 @@ package easyturno
 
 import (
 	"cmp"
+	"iter"
 	"maps"
 	"slices"
 )
@@ -20,6 +21,12 @@ type PuestoSinHabilidad struct {
 	turno      Turno
 	trabajador *Trabajador
 	puesto     Puesto
+}
+
+type TrabajadorConExcesoDeHoras struct {
+	trabajador     *Trabajador
+	horasAsignadas uint
+	horasContrato  uint
 }
 
 func (c Cuadrante) PuestosSinCubrir(demanda Demanda) []PuestoSinCubrir {
@@ -66,7 +73,11 @@ func (c Cuadrante) PuestosSinHabilidad() []PuestoSinHabilidad {
 }
 
 func (c Cuadrante) trabajadoresDelTurno(turno Turno) []*Trabajador {
-	return slices.SortedFunc(maps.Keys(c.asignaciones[turno]), func(a, b *Trabajador) int {
+	return ordenadosPorNombre(maps.Keys(c.asignaciones[turno]))
+}
+
+func ordenadosPorNombre(trabajadores iter.Seq[*Trabajador]) []*Trabajador {
+	return slices.SortedFunc(trabajadores, func(a, b *Trabajador) int {
 		return cmp.Compare(a.nombre, b.nombre)
 	})
 }
@@ -117,4 +128,31 @@ func (c Cuadrante) TrabajadoresSinDescanso() []TrabajadorSinDescanso {
 		}
 	}
 	return sinDescanso
+}
+
+
+func (c Cuadrante) TrabajadoresConExcesoDeHoras() []TrabajadorConExcesoDeHoras {
+	var conExceso []TrabajadorConExcesoDeHoras
+	turnos := c.turnosPorTrabajador()
+	for _, trabajador := range ordenadosPorNombre(maps.Keys(turnos)) {
+		horas := turnos[trabajador] * horasPorTurno
+		if horas > trabajador.horasMaximasSemanales {
+			conExceso = append(conExceso, TrabajadorConExcesoDeHoras{
+				trabajador:     trabajador,
+				horasAsignadas: horas,
+				horasContrato:  trabajador.horasMaximasSemanales,
+			})
+		}
+	}
+	return conExceso
+}
+
+func (c Cuadrante) turnosPorTrabajador() map[*Trabajador]uint {
+	turnos := make(map[*Trabajador]uint)
+	for _, asignaciones := range c.asignaciones {
+		for trabajador := range asignaciones {
+			turnos[trabajador]++
+		}
+	}
+	return turnos
 }

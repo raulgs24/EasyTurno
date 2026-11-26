@@ -240,3 +240,58 @@ func TestTrabajadoresSinDescanso(t *testing.T) {
 		assert.Zero(t, cuadrante.TrabajadoresSinDescanso())
 	})
 }
+
+
+func TestTrabajadoresConExcesoDeHoras(t *testing.T) {
+	lunesDia := Turno{dia: time.Monday, franja: FranjaDia}
+	lunesNoche := Turno{dia: time.Monday, franja: FranjaNoche}
+	martesDia := Turno{dia: time.Tuesday, franja: FranjaDia}
+
+	t.Run("con exactamente sus horas de contrato no hay fallo", func(t *testing.T) {
+		pedro := &Trabajador{nombre: "Pedro", horasMaximasSemanales: 2 * horasPorTurno}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesDia:  {pedro: PuestoRepartidor},
+			martesDia: {pedro: PuestoRepartidor},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresConExcesoDeHoras())
+	})
+
+	t.Run("con un turno más de lo que permite su contrato hay fallo", func(t *testing.T) {
+		pedro := &Trabajador{nombre: "Pedro", horasMaximasSemanales: 2 * horasPorTurno}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesDia:   {pedro: PuestoRepartidor},
+			lunesNoche: {pedro: PuestoRepartidor},
+			martesDia:  {pedro: PuestoRepartidor},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorConExcesoDeHoras{{trabajador: pedro, horasAsignadas: 3 * horasPorTurno, horasContrato: 2 * horasPorTurno}},
+			cuadrante.TrabajadoresConExcesoDeHoras())
+	})
+
+	t.Run("el turno de día y el de noche del mismo día cuentan como dos turnos", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", horasMaximasSemanales: horasPorTurno}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesDia:   {lucia: PuestoHorno},
+			lunesNoche: {lucia: PuestoTelefono},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorConExcesoDeHoras{{trabajador: lucia, horasAsignadas: 2 * horasPorTurno, horasContrato: horasPorTurno}},
+			cuadrante.TrabajadoresConExcesoDeHoras())
+	})
+
+	t.Run("si Pedro se pasa y Lucía no, solo aparece Pedro", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", horasMaximasSemanales: 2 * horasPorTurno}
+		pedro := &Trabajador{nombre: "Pedro", horasMaximasSemanales: horasPorTurno}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesDia:  {lucia: PuestoHorno, pedro: PuestoRepartidor},
+			martesDia: {lucia: PuestoHorno, pedro: PuestoRepartidor},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorConExcesoDeHoras{{trabajador: pedro, horasAsignadas: 2 * horasPorTurno, horasContrato: horasPorTurno}},
+			cuadrante.TrabajadoresConExcesoDeHoras())
+	})
+}

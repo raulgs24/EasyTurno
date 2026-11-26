@@ -9,6 +9,8 @@ const (
 	FranjaNoche Franja = "Noche"
 )
 
+const horasPorTurno uint = 5
+
 type Turno struct {
 	dia    time.Weekday
 	franja Franja
