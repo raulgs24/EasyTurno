@@ -24,8 +24,8 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
 
-    * `make install` Descarga módulos declarados en el `go.mod`
-    * `make check` Comprueba que el código de internal/easyturno compila.
+    * `just install` Descarga módulos declarados en el `go.mod`
+    * `just check` Comprueba que el código de internal/easyturno compila.
 
 
 ## Elección del lenguaje de programación

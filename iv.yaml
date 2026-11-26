@@ -1,5 +1,5 @@
 lenguaje: go
 entidad: internal/easyturno/cuadrante.go
 automatizar:
-  fichero: Makefile
-  orden: make
+  fichero: justfile
+  orden: just
