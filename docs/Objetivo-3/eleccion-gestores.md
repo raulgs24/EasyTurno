@@ -6,12 +6,11 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 
 ## Gestor de tareas
 
-- **Tiempo de instalación** desde que empieza la instalación hasta que la orden se puede ejecutar, usando el método más rápido que ofrezca cada herramienta e instalandola en mi espacio de usuario. Es necesario medirlo porque la herramienta se instalará en cada construcción del contenedor (Objetivo 5) y en cada ejecución de la CI (Objetivo 6)
-- **Que no añada tiempo apreciable al ejecutar las tareas,** porque se lanzarán en cada cambio
+- Tiempo de instalación desde que empieza la instalación hasta que la orden se puede ejecutar, usando el método más rápido que ofrezca cada herramienta e instalandola en mi espacio de usuario. Es necesario medirlo porque la herramienta se instalará en cada construcción del contenedor (Objetivo 5) y en cada ejecución de la CI (Objetivo 6)
+- Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de <gestor> check y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio
 - **Que no añada dependencias a go.mod.**
 
 ### Criterios:
-* Tiempo de ejecución de `check` comparado con `go build`.
 * Dependencias que añade a `go.mod`.
 
 ### Opciones
