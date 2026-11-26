@@ -6,7 +6,6 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 
 ## Gestor de tareas
 
-Go Modules no sirve como gestor de tareas, ya que la orden go no tiene un fichero donde definir tareas propias. Necesito:
 - **Una orden única para cada tarea:** ahora `install` y `check`
 - **Que check compruebe solo la sintaxis**, es decir, que compile
 - **Que se instale rápido,** ya que se instalará en cada construcción del contenedor (objetivo 5) y cada ejecución de la CI (objetivo 6)
