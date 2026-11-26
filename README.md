@@ -24,7 +24,7 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y just que se instala en el espacio de usuario con:
 
-<<<<<<< HEAD
+
     * `make install` Descarga módulos declarados en el `go.mod`
     * `make check` Comprueba que el código de internal/easyturno compila.
     * `make test` Ejecuta los tests de internal/easyturno
