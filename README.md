@@ -22,7 +22,10 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 ## Instalación y comprobación
 
-Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
+Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y just que se instala en el espacio de usuario con:
+
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin
+
 
     * `just install` Descarga módulos declarados en el `go.mod`
     * `just check` Comprueba que el código de internal/easyturno compila.

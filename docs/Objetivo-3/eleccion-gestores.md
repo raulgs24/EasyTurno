@@ -6,8 +6,8 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 
 ## Gestor de tareas
 
-- Tiempo de instalación desde que empieza la instalación hasta que la orden se puede ejecutar, usando el método más rápido que ofrezca cada herramienta e instalandola en mi espacio de usuario. Es necesario medirlo porque la herramienta se instalará en cada construcción del contenedor (Objetivo 5) y en cada ejecución de la CI (Objetivo 6)
-- Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de <gestor> check y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio
+- Tiempo de instalación desde que empieza la instalación hasta que la orden se puede ejecutar, usando el método más rápido que ofrezca cada herramienta e instalandola en mi espacio de usuario. Es necesario medirlo porque la herramienta se instalará en cada construcción del contenedor (Objetivo 5) y en cada ejecución de la CI (Objetivo 6).
+- Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de `<gestor> check` y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio.
 
 ### Opciones
 Las medidas están hechas en un Github Codespace. Como referencia, go build ./... sin gestor tarda de media 48.3 ms.
@@ -44,4 +44,4 @@ También se puede instalar con go install pero tardaría mucho más
   ![goyek check](../img/Objetivo-3/goyek-check.png)
 
 ### Decisión
-make y just son los únicos que no añaden un tiempo apreciable a check; Entre make y just, just se instala de media en 0.66s frente a 1.51s de make, por lo que elijo just.
+make y just son los únicos que no añaden un tiempo apreciable a check; Task, Mage y goyek añaden tiempo extra en cada ejecución. Entre make y just, just se instala de media en 0.66s frente a 1.51s de make, por lo que elijo just.
