@@ -29,6 +29,25 @@ type TrabajadorConExcesoDeHoras struct {
 	horasContrato  uint
 }
 
+
+func (c Cuadrante) Revisar(demanda Demanda) []Fallo {
+	return slices.Concat(
+		comoFallos(c.PuestosSinCubrir(demanda)),
+		comoFallos(c.PuestosSinHabilidad()),
+		comoFallos(c.TrabajadoresNoDisponibles()),
+		comoFallos(c.TrabajadoresSinDescanso()),
+		comoFallos(c.TrabajadoresConExcesoDeHoras()),
+	)
+}
+
+func comoFallos[T Fallo](lista []T) []Fallo {
+	fallos := make([]Fallo, 0, len(lista))
+	for _, fallo := range lista {
+		fallos = append(fallos, fallo)
+	}
+	return fallos
+}
+
 func (c Cuadrante) PuestosSinCubrir(demanda Demanda) []PuestoSinCubrir {
 	var sinCubrir []PuestoSinCubrir
 	for _, turno := range turnosDeLaSemana() {

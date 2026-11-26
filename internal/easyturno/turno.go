@@ -1,6 +1,9 @@
 package easyturno
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 type Franja string
 
@@ -31,4 +34,23 @@ func turnosDeLaSemana() []Turno {
 		}
 	}
 	return turnos
+}
+
+var nombresDeLosDias = map[time.Weekday]string{
+	time.Monday:    "Lunes",
+	time.Tuesday:   "Martes",
+	time.Wednesday: "Miércoles",
+	time.Thursday:  "Jueves",
+	time.Friday:    "Viernes",
+	time.Saturday:  "Sábado",
+	time.Sunday:    "Domingo",
+}
+
+var nombresDeLasFranjas = map[Franja]string{
+	FranjaDia:   "día",
+	FranjaNoche: "noche",
+}
+
+func (t Turno) String() string {
+	return fmt.Sprintf("%s %s", nombresDeLosDias[t.dia], nombresDeLasFranjas[t.franja])
 }
