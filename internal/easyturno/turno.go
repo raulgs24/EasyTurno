@@ -1,6 +1,15 @@
 package easyturno
 
-type AsignacionTurno struct {
-	asignado *Trabajador
-	puesto   Puesto
+import "time"
+
+type Franja string
+
+const (
+	FranjaDia   Franja = "Dia"
+	FranjaNoche Franja = "Noche"
+)
+
+type Turno struct {
+	dia    time.Weekday
+	franja Franja
 }
