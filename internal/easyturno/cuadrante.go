@@ -48,7 +48,6 @@ func (c Cuadrante) personasPorPuesto(turno Turno) map[Puesto]uint {
 	return personas
 }
 
-
 func (c Cuadrante) PuestosSinHabilidad() []PuestoSinHabilidad {
 	var sinHabilidad []PuestoSinHabilidad
 	for _, turno := range turnosDeLaSemana() {
@@ -70,4 +69,26 @@ func (c Cuadrante) trabajadoresDelTurno(turno Turno) []*Trabajador {
 	return slices.SortedFunc(maps.Keys(c.asignaciones[turno]), func(a, b *Trabajador) int {
 		return cmp.Compare(a.nombre, b.nombre)
 	})
+}
+
+type TrabajadorNoDisponible struct {
+	turno      Turno
+	trabajador *Trabajador
+	puesto     Puesto
+}
+
+func (c Cuadrante) TrabajadoresNoDisponibles() []TrabajadorNoDisponible {
+	var noDisponibles []TrabajadorNoDisponible
+	for _, turno := range turnosDeLaSemana() {
+		for _, trabajador := range c.trabajadoresDelTurno(turno) {
+			if !trabajador.disponible(turno) {
+				noDisponibles = append(noDisponibles, TrabajadorNoDisponible{
+					turno:      turno,
+					trabajador: trabajador,
+					puesto:     c.asignaciones[turno][trabajador],
+				})
+			}
+		}
+	}
+	return noDisponibles
 }

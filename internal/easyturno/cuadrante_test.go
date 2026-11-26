@@ -82,7 +82,6 @@ func TestPuestosSinCubrir(t *testing.T) {
 	})
 }
 
-
 func TestPuestosSinHabilidad(t *testing.T) {
 	lucia := &Trabajador{nombre: "Lucía", habilidades: map[Puesto]struct{}{PuestoHorno: {}, PuestoTelefono: {}}}
 	pedro := &Trabajador{nombre: "Pedro", habilidades: map[Puesto]struct{}{PuestoRepartidor: {}}}
@@ -129,5 +128,56 @@ func TestPuestosSinHabilidad(t *testing.T) {
 				{turno: sabadoDia, trabajador: pedro, puesto: PuestoTelefono},
 			},
 			cuadrante.PuestosSinHabilidad())
+	})
+}
+
+func TestTrabajadoresNoDisponibles(t *testing.T) {
+	lunesDia := Turno{dia: time.Monday, franja: FranjaDia}
+	lunesNoche := Turno{dia: time.Monday, franja: FranjaNoche}
+	martesNoche := Turno{dia: time.Tuesday, franja: FranjaNoche}
+	pedro := &Trabajador{nombre: "Pedro"}
+
+	t.Run("si todos trabajan cuando están disponibles no hay fallo", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", indisponibilidad: map[Turno]struct{}{lunesNoche: {}}}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			martesNoche: {lucia: PuestoTelefono, pedro: PuestoHorno},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresNoDisponibles())
+	})
+
+	t.Run("Lucía no puede el lunes por la noche y está en el teléfono", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", indisponibilidad: map[Turno]struct{}{lunesNoche: {}}}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesNoche: {lucia: PuestoTelefono},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorNoDisponible{{turno: lunesNoche, trabajador: lucia, puesto: PuestoTelefono}},
+			cuadrante.TrabajadoresNoDisponibles())
+	})
+
+	t.Run("no poder el lunes por la noche no impide trabajar el lunes de día", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", indisponibilidad: map[Turno]struct{}{lunesNoche: {}}}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesDia: {lucia: PuestoTelefono},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresNoDisponibles())
+	})
+
+	t.Run("si no puede en todo el lunes falla de día y de noche", func(t *testing.T) {
+		lucia := &Trabajador{nombre: "Lucía", indisponibilidad: map[Turno]struct{}{lunesDia: {}, lunesNoche: {}}}
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			lunesNoche: {lucia: PuestoHorno},
+			lunesDia:   {lucia: PuestoTelefono, pedro: PuestoRepartidor},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorNoDisponible{
+				{turno: lunesDia, trabajador: lucia, puesto: PuestoTelefono},
+				{turno: lunesNoche, trabajador: lucia, puesto: PuestoHorno},
+			},
+			cuadrante.TrabajadoresNoDisponibles())
 	})
 }

@@ -37,8 +37,12 @@ func NewTrabajador(nombre string, horasMaximasSemanales uint, habilidades []Pues
 	return trabajador, nil
 }
 
-
 func (t *Trabajador) sabeOcupar(puesto Puesto) bool {
 	_, sabe := t.habilidades[puesto]
 	return sabe
+}
+
+func (t *Trabajador) disponible(turno Turno) bool {
+	_, noDisponible := t.indisponibilidad[turno]
+	return !noDisponible
 }
