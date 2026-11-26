@@ -92,3 +92,29 @@ func (c Cuadrante) TrabajadoresNoDisponibles() []TrabajadorNoDisponible {
 	}
 	return noDisponibles
 }
+
+
+type TrabajadorSinDescanso struct {
+	trabajador   *Trabajador
+	noche        Turno
+	diaSiguiente Turno
+}
+
+
+func (c Cuadrante) TrabajadoresSinDescanso() []TrabajadorSinDescanso {
+	var sinDescanso []TrabajadorSinDescanso
+	for i := range len(diasDeLaSemana) - 1 {
+		noche := Turno{dia: diasDeLaSemana[i], franja: FranjaNoche}
+		diaSiguiente := Turno{dia: diasDeLaSemana[i+1], franja: FranjaDia}
+		for _, trabajador := range c.trabajadoresDelTurno(noche) {
+			if _, trabaja := c.asignaciones[diaSiguiente][trabajador]; trabaja {
+				sinDescanso = append(sinDescanso, TrabajadorSinDescanso{
+					trabajador:   trabajador,
+					noche:        noche,
+					diaSiguiente: diaSiguiente,
+				})
+			}
+		}
+	}
+	return sinDescanso
+}

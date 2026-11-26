@@ -181,3 +181,62 @@ func TestTrabajadoresNoDisponibles(t *testing.T) {
 			cuadrante.TrabajadoresNoDisponibles())
 	})
 }
+
+
+func TestTrabajadoresSinDescanso(t *testing.T) {
+	lucia := &Trabajador{nombre: "Lucía"}
+	pedro := &Trabajador{nombre: "Pedro"}
+	lunesDia := Turno{dia: time.Monday, franja: FranjaDia}
+	viernesDia := Turno{dia: time.Friday, franja: FranjaDia}
+	viernesNoche := Turno{dia: time.Friday, franja: FranjaNoche}
+	sabadoDia := Turno{dia: time.Saturday, franja: FranjaDia}
+	sabadoNoche := Turno{dia: time.Saturday, franja: FranjaNoche}
+	domingoNoche := Turno{dia: time.Sunday, franja: FranjaNoche}
+
+	t.Run("de noche el viernes y de día el sábado se queda sin descanso", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {lucia: PuestoHorno},
+			sabadoDia:    {lucia: PuestoTelefono},
+		}}
+
+		assert.Equal(t,
+			[]TrabajadorSinDescanso{{trabajador: lucia, noche: viernesNoche, diaSiguiente: sabadoDia}},
+			cuadrante.TrabajadoresSinDescanso())
+	})
+
+	t.Run("el turno de día y el de noche del mismo día no es falta de descanso", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesDia:   {lucia: PuestoHorno},
+			viernesNoche: {lucia: PuestoTelefono},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresSinDescanso())
+	})
+
+	t.Run("de noche dos días seguidos no es falta de descanso", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {lucia: PuestoHorno},
+			sabadoNoche:  {lucia: PuestoHorno},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresSinDescanso())
+	})
+
+	t.Run("si el día siguiente trabaja otra persona no hay fallo", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {lucia: PuestoHorno},
+			sabadoDia:    {pedro: PuestoHorno},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresSinDescanso())
+	})
+
+	t.Run("la noche del domingo no se compara con el lunes de la misma semana", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			domingoNoche: {lucia: PuestoHorno},
+			lunesDia:     {lucia: PuestoHorno},
+		}}
+
+		assert.Zero(t, cuadrante.TrabajadoresSinDescanso())
+	})
+}
