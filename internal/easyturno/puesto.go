@@ -8,3 +8,5 @@ const (
 	PuestoHorno      Puesto = "Horno"
 	PuestoTelefono   Puesto = "Telefono"
 )
+
+var puestosDelLocal = []Puesto{PuestoCocinero, PuestoRepartidor, PuestoHorno, PuestoTelefono}
