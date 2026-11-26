@@ -21,6 +21,7 @@ Los criterios fijados antes de mirar las opciones son:
 4. **Sin escribir en el directorio del código fuente:** o, si escribe algo, que la ruta se pueda configurar (objetivo 5)
 5. **Sin instalaciones:** solo hace falta Go para ejecutarlo en el contenedor y en la CI.
 6. **Mantenida:** algún cambio en los dos últimos años.
+7. **Complejidad ciclomática mínima en los tests**: las comprobaciones no añaden ramas al test
 
 Las opciones las he buscado en la sección Testing de [awesome-go](https://github.com/avelino/awesome-go#testing) y en [pkg.go.dev](https://pkg.go.dev). De cada candidata he mirado su go.mod para ver las dependencias directas y la fecha de su ultimo commit.
 
