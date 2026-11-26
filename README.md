@@ -22,12 +22,20 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 ## Instalación y comprobación
 
-Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y make.
+Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y just que se instala en el espacio de usuario con:
 
+<<<<<<< HEAD
     * `make install` Descarga módulos declarados en el `go.mod`
     * `make check` Comprueba que el código de internal/easyturno compila.
     * `make test` Ejecuta los tests de internal/easyturno
 
+mkdir -p ~/.local/bin
+curl -sL https://github.com/casey/just/releases/download/1.59.0/just-1.59.0-x86_64-unknown-linux-musl.tar.gz | tar -xz -C ~/.local/bin just
+export PATH="$HOME/.local/bin:$PATH"
+
+    * `just install` Descarga módulos declarados en el `go.mod`
+    * `just check` Comprueba que el código de internal/easyturno compila.
+    * `just test` Ejecuta los tests de internal/easyturno.
 
 ## Elección del lenguaje de programación
 Para el desarrollo del proyecto se ha optado por trabajar sobre Golang (Go) debido a que su sistema de tipado estricto facilita enormemente el modelado de las Entidades y Objetos Valor requeridos por la metodología Domain-Driven Design. Además, al generar binarios estáticos minimalistas y prescindir por completo de la máquina virtual de Java (JVM), garantiza una ejecución instantánea de las pruebas automatizadas y resulta ideal para la futura creación de contenedores Docker eficientes de cara a su despliegue en la nube.
