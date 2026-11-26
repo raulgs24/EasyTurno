@@ -24,8 +24,9 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 Hace falta Go en la versión indicada en `go.mod` (Go 1.27.2) y just que se instala en el espacio de usuario con:
 
-curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin
-
+mkdir -p ~/.local/bin
+curl -sL https://github.com/casey/just/releases/download/1.59.0/just-1.59.0-x86_64-unknown-linux-musl.tar.gz | tar -xz -C ~/.local/bin just
+export PATH="$HOME/.local/bin:$PATH"
 
     * `just install` Descarga módulos declarados en el `go.mod`
     * `just check` Comprueba que el código de internal/easyturno compila.

@@ -10,38 +10,33 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 - Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de `<gestor> check` y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio.
 
 ### Opciones
-Las medidas están hechas en un Github Codespace. Como referencia, go build ./... sin gestor tarda de media 48.3 ms.
+Las medidas están hechas en un Github Codespace. Para check, todos los gestores se miden en una misma ejecución de hyperfine junto a go build ./... que sirve de referencia (45.7ms)
 
-![go build sin gestor](../img/Objetivo-3/referencia-go-build.png)
+![check con cada gestor](../img/Objetivo-3/check-gestores.png)
 
 Como opciones tenemos: make, Task, just, Mage y goyek
 
-- **[make](https://www.gnu.org/software/make/)** (`Makefile`): descargar y descomprimir el paquete en mi espacio tarda 1.51s de media,  make check tarda 49.7ms frente a 48.3 ms de go build ./... . No añade tiempo apreciable
+- **[make](https://www.gnu.org/software/make/)** (`Makefile`): descargo su paquete de ubuntu y extraigo el binario a mi espacio de usuario con una media de 0.23s, make check tarda de media 45.8ms. No añade tiempo razonable 
 
   ![Instalación de make](../img/Objetivo-3/make-instalacion.png)
-  ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media frente a los 48.3ms de go build ./... . Por lo que añade un tiempo considerable
+- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): con una única orden descargo el binario de su release a mi espacio de usuario en 0.56s de media, task check tarda 110.1 ms de media. Por lo que añade un tiempo considerable
 Se puede descargar también con go install, pero tarda mucho más. 
 
   ![Instalación de task](../img/Objetivo-3/task-instalacion.png)
-  ![task check](../img/Objetivo-3/task-check.png)
 
--  **[just](https://github.com/casey/just)** (`justfile`): su script oficial que descarga el binario lo instala en mi espacio de usuario de media en 0.66s. just check tarda 52.5ms frente a los 48.3ms de go build ./...
-No añade tiempo apreciable
+-  **[just](https://github.com/casey/just)** (`justfile`): con una única orden descargo el binario de su release a mi espacio de usuario en 0.16s. just check tarda 47.7ms. No añade tiempo apreciable
+
   ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
-  ![just check](../img/Objetivo-3/just-check.png)
 
-- **[Mage](https://github.com/magefile/mage)** (`magefile.go`): descargar el binario de sus releases a mi espacio tarda de media 0.16s. mage check tarda 133.4ms de media, mucho más que go build ./...
+- **[Mage](https://github.com/magefile/mage)** (`magefile.go`): descargar el binario de sus releases a mi espacio tarda de media 0.15s. mage check tarda 128ms de media. Añade un tiempo considerable.
 También se puede instalar con go install pero tardaría mucho más
 
   ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
-  ![mage check](../img/Objetivo-3/mage-check.png)
 
-- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: que con la caché de módulos vacía tarda de media 0.16s, go run ./build check tarda 122.7ms, mucho más que con go build ./...
+- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: que con la caché de módulos vacía tarda de media 0.14s, go run ./build check tarda 118.8ms, mucho más que con go build ./...
   
   ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
-  ![goyek check](../img/Objetivo-3/goyek-check.png)
 
 ### Decisión
-make y just son los únicos que no añaden un tiempo apreciable a check; Task, Mage y goyek añaden tiempo extra en cada ejecución. Entre make y just, just se instala de media en 0.66s frente a 1.51s de make, por lo que elijo just.
+make y just son los únicos que no añaden un tiempo apreciable a check; Task, Mage y goyek añaden tiempo extra en cada ejecución. Entre make y just, just se instala de media en 0.16s frente a 0.23s de make. Como la instalación se repetirá en cada construcción del contenedor y en cada ejecución de la CI, por lo que elijo just.
