@@ -19,14 +19,15 @@ Como opciones tenemos: make, Task, just, Mage y goyek
   ![Instalación de make](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media
-Se puede descargar también con go install, pero tarda mucho más.
+- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media frente a los 48.3ms de go build ./... .No añade tiempo apreciable
+Se puede descargar también con go install, pero tarda mucho más. 
 
   ![Instalación de task](../img/Objetivo-3/task-instalacion.png)
   ![task check](../img/Objetivo-3/task-check.png)
 
--  **[just](https://github.com/casey/just)** (`justfile`): se tuvo que instalar, `just check` tarda entre 0.035 y 0.077s, lo mismo que sin gestor
-  ![Instalación de just]
+-  **[just](https://github.com/casey/just)** (`justfile`): su script oficial que descarga el binario lo instala en mi espacio de usuario de media en 0.66s. just check tarda 52.5ms frente a los 48.3ms de go build ./...
+No añade tiempo apreciable
+  ![Instalación de just](../img/Objetivo-3/just-instalacion.png)
   ![just check](../img/Objetivo-3/just-check.png)
 
 - **[Mage](https://github.com/magefile/mage)** (`magefile.go`): se tuvo que instalar; la primera ejecución tarda 0.38s porque compila el magefile.go y las siguientes entre 0.083 y 0.087s
