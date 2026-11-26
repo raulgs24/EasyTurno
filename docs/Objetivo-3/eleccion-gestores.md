@@ -2,26 +2,7 @@
 
 ## Gestor de dependencias
 
-EasyTurno solo importa `time`, de la biblioteca estándar, así que no tiene dependencias externas. Aun así, necesito:
-
-- **Que `internal/easyturno` compile**, porque `check` depende de ello.
-- **Que compile igual en mi máquina, en el contenedor (objetivo 5) y en la CI (objetivo 6).**
-- **No añadir peso ni tiempo de instalación a la imagen.**
-- **Que cuando llegue la primera dependencia (por ejemplo, en los tests) se instale siempre la misma versión.**
-
-Las alternativas a tener en cuenta son Go Modules, dep, Glide y el modo GOPATH.
-
-Descartadas:
-
-- **[dep](https://github.com/golang/dep):** archivado desde septiembre de 2020 en favor de Go Modules.
-- **[Glide](https://github.com/Masterminds/glide):** su README avisa de que está prácticamente sin mantenimiento y recomienda Go Modules.
-
-Por tanto, la decisión es Go Modules: es el estándar del lenguaje, el modo por defecto desde Go 1.16, y cubre las cuatro necesidades anteriores:
-
-- **Compila:** `go.mod` declara el módulo; sin él, `go build` falla.
-- **Igual en todas partes:** la línea `go` de `go.mod` fija la versión de Go.
-- **Sin peso:** va dentro de la orden `go`, no instala nada.
-- **Misma versión:** `go.mod` fija versiones y `go.sum` guarda sus sumas de verificación.
+EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide](https://github.com/Masterminds/glide), [godep](https://github.com/tools/godep), [govendor](https://github.com/kardianos/govendor), [gb](https://github.com/constabulary/gb) y el modo GOPATH; dep, godep, govendor y gb están archivados, Glide avisa en su README que está prácticamente sin mantenimiento, y el modo GOPATH dejó de ser el modo por defecto en Go 1.16. Queda Go Modules, que viene con la propia orden go y se declara en go.mod
 
 ## Gestor de tareas
 
