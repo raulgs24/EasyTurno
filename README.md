@@ -22,7 +22,6 @@ Hay que resolver un problema con una serie de restricciones, las cuales son
 
 ![Fotografía de la tarjeta de rol](./docs/img/tarjeta.jpeg)
 
-                                                                       
 *Nota: La configuración del entorno y despliegue se documentará en ficheros independientes.*
 [Documentación](./docs)
 
