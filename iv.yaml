@@ -1,2 +1,5 @@
 lenguaje: go
 entidad: internal/easyturno/cuadrante.go
+automatizar:
+  fichero: justfile
+  orden: just
