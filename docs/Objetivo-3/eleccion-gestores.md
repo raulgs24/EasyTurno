@@ -32,10 +32,10 @@ No añade tiempo apreciable
 
 - **[Mage](https://github.com/magefile/mage)** (`magefile.go`): descargar el binario de sus releases a mi espacio tarda de media 0.16s. mage check tarda 133.4ms de media, mucho más que go build ./...
 
-  ![Instalación de Mage]
+  ![Instalación de Mage](../img/Objetivo-3/mage-instalacion.png)
   ![mage check](../img/Objetivo-3/mage-check.png)
 
-- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor.
-  ![Instalación de goyek]
+- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: que con la caché de módulos vacía tarda de media 0.16s, go run ./build check tarda 122.7ms, mucho más que con go build ./...
+  ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
   ![goyek check](../img/Objetivo-3/goyek-check.png)
 
