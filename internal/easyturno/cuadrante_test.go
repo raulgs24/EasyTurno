@@ -81,3 +81,53 @@ func TestPuestosSinCubrir(t *testing.T) {
 			cuadrante.PuestosSinCubrir(demanda))
 	})
 }
+
+
+func TestPuestosSinHabilidad(t *testing.T) {
+	lucia := &Trabajador{nombre: "Lucía", habilidades: map[Puesto]struct{}{PuestoHorno: {}, PuestoTelefono: {}}}
+	pedro := &Trabajador{nombre: "Pedro", habilidades: map[Puesto]struct{}{PuestoRepartidor: {}}}
+	viernesNoche := Turno{dia: time.Friday, franja: FranjaNoche}
+	sabadoDia := Turno{dia: time.Saturday, franja: FranjaDia}
+
+	t.Run("si cada uno está en un puesto que sabe ocupar no hay fallo", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {lucia: PuestoHorno, pedro: PuestoRepartidor},
+		}}
+
+		assert.Zero(t, cuadrante.PuestosSinHabilidad())
+	})
+
+	t.Run("Pedro, que solo sabe repartir, en el horno el viernes por la noche", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {pedro: PuestoHorno},
+		}}
+
+		assert.Equal(t,
+			[]PuestoSinHabilidad{{turno: viernesNoche, trabajador: pedro, puesto: PuestoHorno}},
+			cuadrante.PuestosSinHabilidad())
+	})
+
+	t.Run("quien sabe ocupar varios puestos puede estar en cualquiera", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			viernesNoche: {lucia: PuestoTelefono},
+			sabadoDia:    {lucia: PuestoHorno},
+		}}
+
+		assert.Zero(t, cuadrante.PuestosSinHabilidad())
+	})
+
+	t.Run("los fallos salen en el orden de los turnos y, en cada turno, por nombre", func(t *testing.T) {
+		cuadrante := Cuadrante{asignaciones: map[Turno]map[*Trabajador]Puesto{
+			sabadoDia:    {pedro: PuestoTelefono, lucia: PuestoRepartidor},
+			viernesNoche: {pedro: PuestoCocinero},
+		}}
+
+		assert.Equal(t,
+			[]PuestoSinHabilidad{
+				{turno: viernesNoche, trabajador: pedro, puesto: PuestoCocinero},
+				{turno: sabadoDia, trabajador: lucia, puesto: PuestoRepartidor},
+				{turno: sabadoDia, trabajador: pedro, puesto: PuestoTelefono},
+			},
+			cuadrante.PuestosSinHabilidad())
+	})
+}

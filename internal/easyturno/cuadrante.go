@@ -1,5 +1,11 @@
 package easyturno
 
+import (
+	"cmp"
+	"maps"
+	"slices"
+)
+
 type Cuadrante struct {
 	asignaciones map[Turno]map[*Trabajador]Puesto
 }
@@ -8,6 +14,12 @@ type PuestoSinCubrir struct {
 	turno  Turno
 	puesto Puesto
 	faltan uint
+}
+
+type PuestoSinHabilidad struct {
+	turno      Turno
+	trabajador *Trabajador
+	puesto     Puesto
 }
 
 func (c Cuadrante) PuestosSinCubrir(demanda Demanda) []PuestoSinCubrir {
@@ -34,4 +46,28 @@ func (c Cuadrante) personasPorPuesto(turno Turno) map[Puesto]uint {
 		personas[puesto]++
 	}
 	return personas
+}
+
+
+func (c Cuadrante) PuestosSinHabilidad() []PuestoSinHabilidad {
+	var sinHabilidad []PuestoSinHabilidad
+	for _, turno := range turnosDeLaSemana() {
+		for _, trabajador := range c.trabajadoresDelTurno(turno) {
+			puesto := c.asignaciones[turno][trabajador]
+			if !trabajador.sabeOcupar(puesto) {
+				sinHabilidad = append(sinHabilidad, PuestoSinHabilidad{
+					turno:      turno,
+					trabajador: trabajador,
+					puesto:     puesto,
+				})
+			}
+		}
+	}
+	return sinHabilidad
+}
+
+func (c Cuadrante) trabajadoresDelTurno(turno Turno) []*Trabajador {
+	return slices.SortedFunc(maps.Keys(c.asignaciones[turno]), func(a, b *Trabajador) int {
+		return cmp.Compare(a.nombre, b.nombre)
+	})
 }
