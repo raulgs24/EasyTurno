@@ -43,3 +43,5 @@ También se puede instalar con go install pero tardaría mucho más
   ![Instalación de goyek](../img/Objetivo-3/goyek-instalacion.png)
   ![goyek check](../img/Objetivo-3/goyek-check.png)
 
+### Decisión
+make y just son los únicos que no añaden un tiempo apreciable a check; Entre make y just, just se instala de media en 0.66s frente a 1.51s de make, por lo que elijo just.
