@@ -6,7 +6,6 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 
 ## Gestor de tareas
 
-- **Que check compruebe solo la sintaxis**, es decir, que compile
 - **Que se instale rápido,** ya que se instalará en cada construcción del contenedor (objetivo 5) y cada ejecución de la CI (objetivo 6)
 - **Que no añada tiempo apreciable al ejecutar las tareas,** porque se lanzarán en cada cambio
 - **Que no añada dependencias a go.mod.**
