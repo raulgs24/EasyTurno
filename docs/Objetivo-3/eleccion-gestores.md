@@ -19,9 +19,10 @@ Como opciones tenemos: make, Task, just, Mage y goyek
   ![Instalación de make](../img/Objetivo-3/make-instalacion.png)
   ![make check](../img/Objetivo-3/make-check.png)
 
-- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): se tuvo que instalar; `task check` tarda entre 0.127 y 0.261s, más que sin gestor
-  
-  ![Instalación de task]
+- **[Task](https://github.com/go-task/task)** (`Taskfile.yml`): su script oficial, que descarga el binario, lo instala en mi espacio en 1.13s de media, task check tarda unos 116.8 ms de media
+Se puede descargar también con go install, pero tarda mucho más.
+
+  ![Instalación de task](../img/Objetivo-3/task-instalacion.png)
   ![task check](../img/Objetivo-3/task-check.png)
 
 -  **[just](https://github.com/casey/just)** (`justfile`): se tuvo que instalar, `just check` tarda entre 0.035 y 0.077s, lo mismo que sin gestor
