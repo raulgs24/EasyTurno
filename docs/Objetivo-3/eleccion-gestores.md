@@ -8,10 +8,6 @@ EN Go las opciones son Go Modules, [dep](https://github.com/golang/dep), [Glide]
 
 - Tiempo de instalación desde que empieza la instalación hasta que la orden se puede ejecutar, usando el método más rápido que ofrezca cada herramienta e instalandola en mi espacio de usuario. Es necesario medirlo porque la herramienta se instalará en cada construcción del contenedor (Objetivo 5) y en cada ejecución de la CI (Objetivo 6)
 - Tiempo que añade el gestor al ejecutar check, la diferencia entre la media de <gestor> check y la de go build ./... lanzado directamente. Lo mido porque check se lanzará en cada cambio
-- **Que no añada dependencias a go.mod.**
-
-### Criterios:
-* Dependencias que añade a `go.mod`.
 
 ### Opciones
 Como referencia, `go build` sin gestor tarda 0.048-0.109s:
@@ -35,11 +31,9 @@ Como opciones tenemos: make, Task, just, Mage y goyek
 
   ![mage check](../img/Objetivo-3/mage-check.png)
 
-- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor; añade una dependecia a `go.mod` y crea `go.sum`
+- **[goyek](https://github.com/goyek/goyek)** (biblioteca de Go): no se instala como programa, se añade con `go get`: la primera ejecución de `go run ./build check` tarda 0.39s, las siguientes entre 0.219 y 0.257s, unos 0.15-0.20s más que sin gestor.
 
   ![goyek check](../img/Objetivo-3/goyek-check.png)
-  ![go.mod con goyek](../img/Objetivo-3/goyek-gomod.png)
-
 
 ### Disponibilidad en cada entorno
 
